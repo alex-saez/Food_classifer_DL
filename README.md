@@ -1,7 +1,6 @@
 # Food_classifer_DL
 
 ## Setup
-
 ### Spin up appropriate VM on GCP using gcloud CLI tool:
 
 ```
@@ -27,4 +26,16 @@ gcloud compute instances create $INSTANCE_NAME \
 e.g.
 ```
 gcloud compute ssh $INSTANCE_NAME
+```
+### Install Anaconda and create environment:
+```
+export ANACONDA_URL=https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+export ANACONDA_INSTALLER=anaconda_installer.sh
+wget $ANACONDA_URL -O $ANACONDA_INSTALLER
+chmod +x $ANACONDA_INSTALLER
+./$ANACONDA_INSTALLER -b
+echo "export PATH=$PATH:$HOME/anaconda3/bin" >> $HOME/.bashrc
+source $HOME/.bashrc
+
+conda create -n tf_p36 -y python=3.6
 ```
