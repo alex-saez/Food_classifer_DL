@@ -1,7 +1,7 @@
 # Food_classifer_DL
 
 ## Setup
-### Spin up appropriate VM on GCP using gcloud CLI tool:
+### Spin up VM on GCP using gcloud CLI tool
 
 ```
 export IMAGE_FAMILY="common-cu90"
@@ -22,12 +22,12 @@ gcloud compute instances create $INSTANCE_NAME \
         --metadata='install-nvidia-driver=True'
 ```
 
-### ssh into the VM:
+### ssh into the VM
 e.g.
 ```
 gcloud compute ssh $INSTANCE_NAME
 ```
-### Install Anaconda and create environment:
+### Install Anaconda
 ```
 export ANACONDA_URL=https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
 export ANACONDA_INSTALLER=anaconda_installer.sh
@@ -36,6 +36,11 @@ chmod +x $ANACONDA_INSTALLER
 ./$ANACONDA_INSTALLER -b
 echo "export PATH=$PATH:$HOME/anaconda3/bin" >> $HOME/.bashrc
 source $HOME/.bashrc
-
-conda create -n tf_p36 -y python=3.6
 ```
+### Create environment and install requirements
+```
+export ENV_NAME=tf_p36
+conda create -n $ENV_NAME -y python=3.6
+source activate $ENV_NAME
+
+while read requirement; do conda install --yes $requirement; done < requirements.txt
