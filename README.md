@@ -1,6 +1,6 @@
 # Food_classifer_DL
 
-Classify pictures of foods using dataset of 101,000 images of 101 possible food categories. Trained model both with Fast.ai and Keras. 
+Classify pictures of foods using dataset of 101,000 images of 101 possible food categories. Train CNN model both with Fast.ai and Keras. 
 After hardware setup below, run `setup.ipynb` for downloading and prepping dataset.
 
 ## Setup
